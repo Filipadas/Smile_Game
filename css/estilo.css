@@ -5,22 +5,23 @@
     display:inline;
   }
   .inicial {
+    color: white;
     text-align: center;
     font-size: 100px;
-    background-color: lightgrey;
+    background-color: blue;
     width: 150px;
     height: 200px;
-    border: 15px solid green;
+    border: 15px solid black;
     padding: 10px;
     margin: 20px;
   }
   .acertou {
     text-align: center;
-    color: yellow;
-    background-color: LawnGreen;
+    color: black;
+    background-color: white;
     width: 150px;
     height: 200px;
-    border: 15px solid yellow;
+    border: 15px solid blue;
     padding: 10px;
     margin: 20px;
   }
@@ -31,7 +32,10 @@
     background-color: red;
     width: 150px;
     height: 200px;
-    border: 15px solid black;
+    border: 15px solid whitesmoke;
     padding: 10px;
     margin: 20px;
+  }
+  #titulo{
+    text-align: center;
   }

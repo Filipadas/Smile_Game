@@ -30,7 +30,7 @@
       //percorremos todas as divs armazenadas
       for (i = 0; i < divis.length; i++) {
         //verificamos se sao as divs com ids 0 ou 1 ou 2
-        if (divis[i].id == 0 || divis[i].id == 1 || divis[i].id == 2) {
+        if (divis[i].id == 0 || divis[i].id == 1 || divis[i].id == 2 || divis[i].id==3 || divis[i].id==4 || divis[i].id==5 || divis[i].id==6 || divis[i].id==7 || divis[i].id==8 || divis[i].id==9 || divis[i].id==10 || divis[i].id==11) {
           //alteramos a classe css das divs 0, 1 e 2 (className)
           divis[i].className = "inicial";
         }
@@ -62,9 +62,17 @@
       const img = new Image(100);
       img.id = "imagem";
       //altera o atributo src (source) da imagem criada
-      img.src = "https://upload.wikimedia.org/wikipedia/commons/2/2e/Oxygen480-emotes-face-smile-big.svg";
+      img.src = "https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Flogodetimes.com%2Ftimes%2Fgremio%2Flogo-gremio-4096.png&sp=1747394389Tb61cfeb05b82e754951b5b9a1f87c20560066909f1ff8c62ded03351ad20f3d1";
       //adiciona a imagem criada na div (obj) escolhida pelo jogador (appendChild)
       obj.appendChild(img);
+    }
+
+    function errou(obj) {
+      obj.className = "errou";
+      const imgerro = new Image(100);
+      imgerro.id = "errado";
+      imgerro.src = "https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KfDFpCSIV-YmSILaUBonGQHaHa%26pid%3DApi&sp=1747395569T55be2521eb213504d2c783b8e5d15891a5bcf9e4eaef54c82b4c537d9e0d23bc";
+      obj.appendChild(imgerro);
     }
 
     //Função que sorteia um número aleatório entre 0 e 2 e verifica se o jogador acertou
@@ -76,7 +84,7 @@
         //incrementa as tentativas
         tentativas++;
         //verifica se jogou 3 vezes
-        if (tentativas == 3) {
+        if (tentativas == 10) {
           //oculta o botao joganovamente alterando a classe css (getElementById e className)
           btnJogarNovamente.className = 'invisivel';
           //mostra o botao reiniciar alterando a classe css (getElementById e className)
@@ -101,7 +109,7 @@
         //chama a funçao que atualiza o placar
         atualizaPlacar(acertos, tentativas);
       } else {//se o jogador clicar em outra carta sem reiniciar o jogo, recebe um alerta
-        alert('Clique em "Jogar novamente"');
+        alert('Clique em "Jogar Novamente"');
       }
     }
 
