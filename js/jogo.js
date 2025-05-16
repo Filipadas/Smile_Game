@@ -37,12 +37,8 @@
       }
 
       //armazenamos a imagem do Smile na variável imagem (getElementById)
-      let imagem = document.getElementById("imagem");
-      //se a imagem nao for vazia (se ela existir)
-      if (imagem != "") {
-        //removemos a imagem do Smile
-        imagem.remove();
-      }
+      let imagens = document.querySelectorAll("img");
+        imagens.forEach(img => img.remove());
     }
 
     //funçao que atualiza o placar
@@ -71,7 +67,7 @@
       obj.className = "errou";
       const imgerro = new Image(100);
       imgerro.id = "errado";
-      imgerro.src = "https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KfDFpCSIV-YmSILaUBonGQHaHa%26pid%3DApi&sp=1747395569T55be2521eb213504d2c783b8e5d15891a5bcf9e4eaef54c82b4c537d9e0d23bc";
+      imgerro.src = "https://logodetimes.com/times/internacional/logo-internacional-4096.png";
       obj.appendChild(imgerro);
     }
 
@@ -91,7 +87,7 @@
           btnReiniciar.className = 'visivel';
         }
         //a variável sorteado recebe um valor inteiro (Math.floor) aleatório (Math.random)
-        let sorteado = Math.floor(Math.random() * 3);
+        let sorteado = Math.floor(Math.random() * 11);
         //se o id da <div> escolhida pelo jogador for igual ao número sorteado
         if (obj.id == sorteado) {
           //chama a funçao acertou passando a div escolhida pelo jogador
@@ -100,7 +96,7 @@
           acertos++;
         } else {//se errou a tentativa
           //altera a classe da <div> escolhida pelo jogador para a classe errou
-          obj.className = "errou";
+          errou(obj);
           //armazena a div aonde Smile está escondido (getElementById)
           const objSorteado = document.getElementById(sorteado);
           //chama a funçao acertou para mostrar a div aonde está o Smile
