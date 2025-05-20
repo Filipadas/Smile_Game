@@ -52,24 +52,51 @@
 
     //funçao executada quando o jogador acertou
     function acertou(obj) {
-      //altera a classe CSS da <div> escolhida pelo jogador (className)
-      obj.className = "acertou";
-      //Criar uma constante img que armazena um novo objeto imagem com largura de 100px
-      const img = new Image(100);
-      img.id = "imagem";
-      //altera o atributo src (source) da imagem criada
-      img.src = "https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Flogodetimes.com%2Ftimes%2Fgremio%2Flogo-gremio-4096.png&sp=1747394389Tb61cfeb05b82e754951b5b9a1f87c20560066909f1ff8c62ded03351ad20f3d1";
-      //adiciona a imagem criada na div (obj) escolhida pelo jogador (appendChild)
-      obj.appendChild(img);
-    }
+  obj.className = "acertou";
+
+  const img = new Image(100);
+  img.id = "imagem";
+  img.src = "https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Flogodetimes.com%2Ftimes%2Fgremio%2Flogo-gremio-4096.png&sp=1747745656Tda3c99696d23b2635341818992a9a7429414662326be41cc50d01a738470dac3";
+  obj.appendChild(img);
+
+  // Toca som de torcida
+  const som = document.getElementById("som-gremio");
+  som.currentTime = 0;
+  som.play();
+
+  // Confetes!
+  confetti({
+    particleCount: 150,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+}
+
 
     function errou(obj) {
-      obj.className = "errou";
-      const imgerro = new Image(100);
-      imgerro.id = "errado";
-      imgerro.src = "https://logodetimes.com/times/internacional/logo-internacional-4096.png";
-      obj.appendChild(imgerro);
-    }
+  obj.className = "errou";
+
+  const imgerro = new Image(100);
+  imgerro.id = "errado";
+  imgerro.src = "https://logodetimes.com/times/internacional/logo-internacional-4096.png";
+  obj.appendChild(imgerro);
+
+  // Toca som de erro
+  const som = document.getElementById("som-erro");
+  som.currentTime = 0;
+  som.play();
+
+  // Chuva de tomates
+  for (let i = 0; i < 12; i++) {
+    const tomate = document.createElement("img");
+    tomate.src = "https://cdn-icons-png.flaticon.com/512/590/590685.png";
+    tomate.className = "tomate";
+    tomate.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(tomate);
+    setTimeout(() => tomate.remove(), 2000);
+  }
+}
+
 
     //Função que sorteia um número aleatório entre 0 e 2 e verifica se o jogador acertou
     function verifica(obj) {
