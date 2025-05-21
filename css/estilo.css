@@ -1,9 +1,10 @@
 .invisivel{
-    display:none;
+    display:none; !important
   }
   .visivel{
-    display:inline;
+    display:inline; IM !important
   }
+
   .inicial {
     color: white;
     text-align: center;
@@ -14,6 +15,10 @@
     border: 15px solid black;
     padding: 10px;
     margin: 20px;
+    border-radius: 30px;
+    font-family: fantasy;
+    box-shadow: lightblue 5px 5px 10px;
+    cursor: pointer;
   }
   .acertou {
     text-align: center;
@@ -24,6 +29,8 @@
     border: 15px solid blue;
     padding: 10px;
     margin: 20px;
+    border-radius: 30px;
+    box-shadow: green 5px 5px 10px;
   }
   .errou {
     text-align: center;
@@ -34,9 +41,13 @@
     border: 15px solid whitesmoke;
     padding: 10px;
     margin: 20px;
+    border-radius: 30px;
+    box-shadow: red 5px 5px 10px;
   }
   #titulo{
+    color: white;
     text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
   .tomate {
@@ -53,4 +64,52 @@
     top: 100vh;
     opacity: 0;
   }
+}
+
+.container-fluid{
+  background-color: darkblue;
+
+}
+
+#teladojogo {
+  border: 0,1px solid rgb(48, 61, 248);
+  border-radius: 30px;
+  margin-top: 20px;
+  padding: 30px;
+  background-color: rgb(48, 61, 248);
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+#resposta{
+  line-height: 0;
+  text-align: center;
+  color: white;
+}
+
+#joganovamente,
+#reiniciar {
+  background-color: #5ebffc; /* azul claro */
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.5);
+  cursor: pointer;
+  text-align: center;
+  margin: 10px 5px;
+  width: 200px;
+  transition: background-color 0.3s ease;
+}
+
+#joganovamente:hover,
+#reiniciar:hover {
+  background-color: #6ca0dc;
+  transform: scale(1.05);
+}
+
+#div1{
+  text-align: center;
 }

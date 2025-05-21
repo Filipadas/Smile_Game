@@ -30,7 +30,7 @@
       //percorremos todas as divs armazenadas
       for (i = 0; i < divis.length; i++) {
         //verificamos se sao as divs com ids 0 ou 1 ou 2
-        if (divis[i].id == 0 || divis[i].id == 1 || divis[i].id == 2 || divis[i].id==3 || divis[i].id==4 || divis[i].id==5 || divis[i].id==6 || divis[i].id==7 || divis[i].id==8 || divis[i].id==9 || divis[i].id==10 || divis[i].id==11) {
+        if (divis[i].id == 0 || divis[i].id == 1 || divis[i].id == 2 || divis[i].id==3 || divis[i].id==4 || divis[i].id==5 || divis[i].id==6 || divis[i].id==7) {
           //alteramos a classe css das divs 0, 1 e 2 (className)
           divis[i].className = "inicial";
         }
@@ -56,13 +56,11 @@
 
   const img = new Image(100);
   img.id = "imagem";
-  img.src = "https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Flogodetimes.com%2Ftimes%2Fgremio%2Flogo-gremio-4096.png&sp=1747745656Tda3c99696d23b2635341818992a9a7429414662326be41cc50d01a738470dac3";
+  img.src = "imagens/logo-gremio.png";
   obj.appendChild(img);
 
-  // Toca som de torcida
-  const som = document.getElementById("som-gremio");
-  som.currentTime = 0;
-  som.play();
+  
+
 
   // Confetes!
   confetti({
@@ -73,12 +71,13 @@
 }
 
 
+
     function errou(obj) {
   obj.className = "errou";
 
   const imgerro = new Image(100);
   imgerro.id = "errado";
-  imgerro.src = "https://logodetimes.com/times/internacional/logo-internacional-4096.png";
+  imgerro.src = "imagens/logo-inter.png";
   obj.appendChild(imgerro);
 
   // Toca som de erro
@@ -107,18 +106,21 @@
         //incrementa as tentativas
         tentativas++;
         //verifica se jogou 3 vezes
-        if (tentativas == 10) {
+        if (tentativas == 5) {
           //oculta o botao joganovamente alterando a classe css (getElementById e className)
           btnJogarNovamente.className = 'invisivel';
           //mostra o botao reiniciar alterando a classe css (getElementById e className)
           btnReiniciar.className = 'visivel';
         }
         //a variável sorteado recebe um valor inteiro (Math.floor) aleatório (Math.random)
-        let sorteado = Math.floor(Math.random() * 11);
+        let sorteado = Math.floor(Math.random() * 8);
         //se o id da <div> escolhida pelo jogador for igual ao número sorteado
         if (obj.id == sorteado) {
           //chama a funçao acertou passando a div escolhida pelo jogador
           acertou(obj);
+          const som = document.getElementById("somPirilim");
+          som.currentTime = 0;
+          som.play();
           //incrementa o contador de acertos
           acertos++;
         } else {//se errou a tentativa

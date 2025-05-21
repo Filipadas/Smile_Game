@@ -14,26 +14,27 @@
 
     <div id="principal" class="container-fluid">
       <div id="titulo">  
-        <h1>Aonde está o Grêmio?</h1>
-        <p>Tente adivinhar aonde está o Grêmio.</p>
-        <h4>HARD LEVEL</h4>
+        <h1>AONDE ESTÁ O GRÊMIO?</h1>
+        <h3>Tente adivinhar aonde está o Grêmio.</h3>
       </div>
+      <div id="teladojogo">
       <div id="linha1" class="row justify-content-center">
         <div id="0" class="inicial" onclick="verifica(this)">0</div>
         <div id="1" class="inicial" onclick="verifica(this)">1</div>
         <div id="2" class="inicial" onclick="verifica(this)">2</div>
         <div id="3" class="inicial" onclick="verifica(this)">3</div>
+        
+      </div>
+      <div id="linha2" class="row justify-content-center">
         <div id="4" class="inicial" onclick="verifica(this)">4</div>
         <div id="5" class="inicial" onclick="verifica(this)">5</div>
         <div id="6" class="inicial" onclick="verifica(this)">6</div>
         <div id="7" class="inicial" onclick="verifica(this)">7</div>
-        <div id="8" class="inicial" onclick="verifica(this)">8</div>
-        <div id="9" class="inicial" onclick="verifica(this)">9</div>
-        <div id="10" class="inicial" onclick="verifica(this)">10</div>
-        <div id="11" class="inicial" onclick="verifica(this)">11</div>
+        <p id="resposta"></p>
+      </div>
       </div>
       <div class="row justify-content-center" id="div1">
-        <p id="resposta"></p>
+        
         <button id="joganovamente">Jogar novamente</button>
         <button id="reiniciar" class="invisivel">Reiniciar</button>
       </div>
@@ -43,7 +44,7 @@
       crossorigin="anonymous"></script> 
     <script src="./js/jogo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <audio id="som-gremio" src="https://www.myinstants.com/media/sounds/torcida-gremio.mp3"></audio>
+    <audio id="somPirilim" src="sons/pirilim_som.mp3"></audio>    
     <audio id="som-erro" src="https://www.myinstants.com/media/sounds/wrong-answer-sound-effect.mp3"></audio>
     
   </body>
