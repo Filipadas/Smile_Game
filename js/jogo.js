@@ -4,6 +4,7 @@
     let acertos = 0;
     let jogar = true;
 
+
     //captura os botoes pelos ids e adiciona um evento de clique
     const btnReiniciar = document.getElementById('reiniciar');
     const btnJogarNovamente = document.getElementById('joganovamente');
@@ -52,49 +53,66 @@
 
     //funçao executada quando o jogador acertou
     function acertou(obj) {
-  obj.className = "acertou";
+  if (obj.classList.contains("acertou") || obj.classList.contains("errou")) {
+    return;
+  }
 
-  const img = new Image(100);
-  img.id = "imagem";
-  img.src = "imagens/logo-gremio.png";
-  obj.appendChild(img);
+  obj.classList.add("girar");
 
-  
+  setTimeout(() => {
+    obj.className = "acertou";
+
+    const img = new Image(100);
+    img.id = "imagem";
+    img.src = "imagens/logo-gremio.png";
+    obj.appendChild(img);
 
 
-  // Confetes!
-  confetti({
-    particleCount: 150,
-    spread: 100,
-    origin: { y: 0.6 }
-  });
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+  }, 300);
 }
+
+
 
 
 
     function errou(obj) {
-  obj.className = "errou";
-
-  const imgerro = new Image(100);
-  imgerro.id = "errado";
-  imgerro.src = "imagens/logo-inter.png";
-  obj.appendChild(imgerro);
-
-  // Toca som de erro
-  const som = document.getElementById("som-erro");
-  som.currentTime = 0;
-  som.play();
-
-  // Chuva de tomates
-  for (let i = 0; i < 12; i++) {
-    const tomate = document.createElement("img");
-    tomate.src = "https://cdn-icons-png.flaticon.com/512/590/590685.png";
-    tomate.className = "tomate";
-    tomate.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(tomate);
-    setTimeout(() => tomate.remove(), 2000);
+  if (obj.classList.contains("acertou") || obj.classList.contains("errou")) {
+    return;
   }
+
+  obj.classList.add("girar");
+
+  setTimeout(() => {
+    obj.className = "errou";
+
+    const imgerro = new Image(100);
+    imgerro.id = "errado";
+    imgerro.src = "imagens/logo-inter.png";
+    obj.appendChild(imgerro);
+
+    const som = document.getElementById("som-erro");
+    if (som) {
+      som.currentTime = 0;
+      som.play();
+    }
+
+    for (let i = 0; i < 12; i++) {
+      const tomate = document.createElement("img");
+      tomate.src = "https://cdn-icons-png.flaticon.com/512/590/590685.png";
+      tomate.className = "tomate";
+      tomate.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(tomate);
+      setTimeout(() => tomate.remove(), 2000);
+    }
+  }, 300);
 }
+
+
 
 
     //Função que sorteia um número aleatório entre 0 e 2 e verifica se o jogador acertou
